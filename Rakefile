@@ -11,7 +11,8 @@ begin
     t.files = ['lib/*.rb']
     t.options = ['--output-dir', 'doc']
   end
-rescue NameError, LoadError
+rescue LoadError
+  puts "Consider running bundle install"
 end
 
 desc "Test specifications"
