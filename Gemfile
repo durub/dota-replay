@@ -2,6 +2,7 @@ source "http://rubygems.org"
 
 group :development do
   gem "yard"
+  gem "bluecloth"
 end
 
 group :test do
