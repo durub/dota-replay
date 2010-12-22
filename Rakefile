@@ -4,9 +4,14 @@ task :default do
   puts "Nothing to do. Consider using \"rake -T\" to see available tasks."
 end
 
-desc "Generate documentation"
-task :doc do
-  sh "yardoc"
+begin
+  require "yard"
+
+  YARD::Rake::YardocTask.new do |t|
+    t.files = ['lib/*.rb']
+    t.options = ['--output-dir', 'doc']
+  end
+rescue NameError, LoadError
 end
 
 desc "Test specifications"
