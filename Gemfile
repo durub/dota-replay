@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
+gem "nokogiri", "1.4.4"
+
 group :development do
   gem "yard"
   gem "bluecloth"
