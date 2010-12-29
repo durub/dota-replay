@@ -10,6 +10,6 @@ class HTTP
   #   HTTP.download("http://www.google.com")
   def self.download(path)
     url = URI.parse(path)
-    Net::HTTP.get(url).body
+    Net::HTTP.get(url)
   end
 end

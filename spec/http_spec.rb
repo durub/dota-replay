@@ -13,9 +13,7 @@ describe HTTP do
 </html>
 HTML
 
-    request = double("request")
-    request.stub(:body) { string }
-    Net::HTTP.stub(:get) { request }
+    Net::HTTP.stub(:get) { string }
 
     page = HTTP.download("http://www.example.com")
     page.should == string
