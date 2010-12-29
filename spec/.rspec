@@ -1,2 +1,3 @@
 # /.rspec
 --color
+--require spec_helper.rb
