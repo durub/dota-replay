@@ -15,7 +15,7 @@ rescue LoadError
   puts "Consider running bundle install"
 end
 
-desc "Test specifications"
-task :test do
+desc "Run specifications"
+task :spec do
   sh "rspec spec"
 end
