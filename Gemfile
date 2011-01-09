@@ -9,4 +9,5 @@ end
 
 group :test do
   gem "rspec", ">2.0"
+  gem "fakefs", "0.3.1"
 end
