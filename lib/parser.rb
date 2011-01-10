@@ -7,6 +7,7 @@ class Parser
     # as an array of hashes, each hash being a replay.
     #
     # Following data is available for each replay:
+    # * :id       => the gosugamers replay id
     # - :sentinel => the sentinel team name
     # - :scourge  => the scourge team name
     # - :version  => replay dota version
