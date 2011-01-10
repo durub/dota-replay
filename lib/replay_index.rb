@@ -33,7 +33,7 @@ class ReplayIndex
   # A Hash with an :id key meets this criteria, for example
   #
   # @param [Object] replay the object, meeting above criteria
-  # @return [Object, nil] the object passed as replay or nil, if the object doesn't meet the criteria
+  # @return [Array, nil] the replays array or nil, if the object doesn't meet the criteria
   # @example
   #   index = ReplayIndex.new
   #   index.add_replay({ :id => 100 })
