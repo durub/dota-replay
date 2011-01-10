@@ -5,7 +5,8 @@ describe Parser do
     it "should parse a list of replays in html and return an array of hashes with replay data" do
       file = File.read(LIST_1)
       replays = Parser.parse_replay_list(file)
-      data = [{ :sentinel => "Team Sentinel Name",
+      data = [{ :id       => "1000",
+                :sentinel => "Team Sentinel Name",
                 :scourge  => "Team Scourge Name",
                 :version  => "DotA Version",
                 :event    => "Event",
@@ -14,7 +15,8 @@ describe Parser do
                 :date     => "0000-00-00",
                 :link     => "/replays/1000"},
 
-              { :sentinel => "Sent",
+              { :id       => "1001",
+                :sentinel => "Sent",
                 :scourge  => "Scourge",
                 :version  => "v6.66b",
                 :event    => "Dreamhack Winter",

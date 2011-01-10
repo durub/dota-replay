@@ -87,15 +87,17 @@ class Parser
     private
       def parse_replay_tr(tr)
         innermost = tr.children.children.children
+        link = tr.first(2)[1][1]
 
-        replay = { :sentinel => innermost[2].text,
+        replay = { :id       => link.split("/")[2],
+                   :sentinel => innermost[2].text,
                    :scourge  => innermost[3].text,
                    :version  => innermost[4].text,
                    :event    => innermost[5].text,
                    :rating   => innermost[6].text,
                    :dl_count => innermost[7].text,
                    :date     => innermost[8].text,
-                   :link     => tr.first(2)[1][1] }
+                   :link     => link }
 
         replay.each_value(&:strip!)
       end
