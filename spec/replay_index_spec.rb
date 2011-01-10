@@ -114,7 +114,7 @@ C
       index.add_replay({:id => 0})
 
       index.each_replay do |replay|
-        replay[:id].should eq(0)
+        replay[:id].to_i.should eq(0)
       end
     end
   end

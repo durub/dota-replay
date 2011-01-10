@@ -29,8 +29,9 @@ class ReplayIndex
 
   # Add a replay
   #
-  # The replay must respond_to? [] and must have an [:id]
-  # A Hash with an :id key meets this criteria, for example
+  # The replay must respond_to? [] and must have an [:id]<br />
+  # A Hash with an :id key meets this criteria, for example<br />
+  # The :id must be convertible to a String, via .to_s
   #
   # @param [Object] replay the object, meeting above criteria
   # @return [Array, nil] the replays array or nil, if the object doesn't meet the criteria
@@ -43,16 +44,21 @@ class ReplayIndex
   #   index.add_replay("")
   #     # => nil
   def add_replay(replay)
-    @replays << replay if replay.respond_to?("[]") && replay[:id]
+    if replay.respond_to?("[]") && !replay[:id].nil?
+      replay[:id] = replay[:id].to_s
+      @replays << replay
+    end
   end
 
   # Remove a replay given its id
   #
-  # @param [Integer] id the replay id
+  # @param [Object] id the replay id, must be convertible to String via .to_s
   # @example
   #   index = ReplayIndex.new("index.idx")
   #   index.remove_replay(100)
   def remove_replay(id)
+    id = id.to_s
+
     @replays.delete_if do |replay|
       replay[:id] == id
     end
@@ -60,12 +66,13 @@ class ReplayIndex
 
   # Check if a replay exists in the index, given its id
   #
-  # @param [Integer] id the replay id
+  # @param [Object] id the replay id, must be convertible to String via .to_s
   # @return [Boolean]
   # @example
   #  index = ReplayIndex.new("index.idx")
   #  index.replay_exist?(100)
   def replay_exist?(id)
+    id = id.to_s
     exist = @replays.find { |replay| replay[:id] == id }
     exist.nil? ? false : true
   end
