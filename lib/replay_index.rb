@@ -1,5 +1,19 @@
 require "nokogiri"
 
+# ReplayIndex stores a replay index in XML format
+
+# It includes all Enumerable features that only require each to be defined.<br />
+#
+# @example Creating and saving
+#   index = ReplayIndex.new("index.idx")
+#   index.add_replay({ :id => 1, :sentinel => "EHOME", :scourge => "LGD" })
+#   index.replay_exist?(1)
+#     # => true
+#   index.save
+#
+# @example Find all replays from LGD
+#   index = ReplayIndex.new("index.idx")
+#   replays = index.find_all { |replay| replay[:sentinel] == "LGD" || replay[:scourge] == "LGD" }
 class ReplayIndex
   attr_reader :replays
   include Enumerable
