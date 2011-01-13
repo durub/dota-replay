@@ -58,7 +58,6 @@ class Crawler
     end
   end
 
-
   private
     def crawl_pages(pages)
       crawl_pages_with_progress(pages) do
