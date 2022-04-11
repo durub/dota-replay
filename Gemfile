@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 
-gem "nokogiri", "1.11.4"
+gem "nokogiri", "1.13.4"
 
 group :development do
   gem "yard"
